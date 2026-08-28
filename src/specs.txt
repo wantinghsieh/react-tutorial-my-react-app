@@ -5,3 +5,4 @@ sample specs for claude to generate components
  "Add a Color component in src/Color.jsx, function component, default export. State: color (useState, default "red"). Render the color and 4 buttons:blue, red, pink, green. Style with a new Color.css imported into it, plain CSS classes, no inline styles. Import and render it inside App.jsx above the existing buttons."
 
 
+  "Add a Timer component in src/Timer.jsx, function component, default export. State: count (useState, starts at 0). add a useEffect (import from react) with no dependency array. Inside, call setTimeout(() => setCount((count) => count + 1), 1000). No cleanup function. Render <h1>I've rendered {count} times!</h1>. Style with a new Timer.css imported into it, plain CSS classes, no inline styles. Import and render it inside App.jsx above the existing buttons."
