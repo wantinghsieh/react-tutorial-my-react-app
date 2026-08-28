@@ -5,11 +5,13 @@ import viteLogo from './assets/vite.svg'
 import Counter from './Counter'
 import Color from './Color'
 import Timer from './Timer'
+import Ref from './Ref'
 import './App.css'
 
 function App() {
   return (
     <>
+      <Ref />
       <Timer />
       <Counter />
       <Color />
