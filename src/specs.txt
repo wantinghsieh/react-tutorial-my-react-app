@@ -1,0 +1,7 @@
+sample specs for claude to generate components
+
+ "Add a Counter component in src/Counter.jsx, function component, default export. State: count (useState, starts at 0). Render the count and two buttons: + increments, - decrements, don't go below 0. Style with a new Counter.css imported into it, plain CSS classes, no inline styles. Import and render it inside App.jsx above the existing buttons."
+ 
+ "Add a Color component in src/Color.jsx, function component, default export. State: color (useState, default "red"). Render the color and 4 buttons:blue, red, pink, green. Style with a new Color.css imported into it, plain CSS classes, no inline styles. Import and render it inside App.jsx above the existing buttons."
+
+
