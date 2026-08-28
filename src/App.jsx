@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
+import Counter from './Counter'
 import './App.css'
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
 
   return (
     <>
+      <Counter />
       <h1>My favorite color is {color}!</h1>
       <button
         type="button"

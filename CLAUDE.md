@@ -18,9 +18,10 @@ There is no test suite configured.
 ## Architecture
 
 - `src/main.jsx` — entry point, mounts `<App />` into `#root` inside `StrictMode`.
-- `src/App.jsx` — single top-level component containing all current UI; no other components exist yet.
+- `src/App.jsx` — top-level component; composes other components (e.g. `Counter`) plus its own local UI/state.
+- `src/Counter.jsx` — example of the split-out pattern: a component paired with its own co-located CSS file (`Counter.css`), each imported directly (no CSS modules).
 - `src/assets/` — static images imported directly into JSX.
 - `public/icons.svg` — sprite sheet referenced via `<use href="/icons.svg#...">` for inline icons (documentation/social/github/discord/x/bluesky icons).
-- Styling is plain CSS (`src/App.css`, `src/index.css`), no CSS framework or CSS-in-JS.
+- Styling is plain CSS, one file per component (`App.css`, `Counter.css`, `index.css`), no CSS framework or CSS-in-JS.
 
-Since the app is currently a single component, when adding features expect to split `App.jsx` into multiple components under `src/` as the app grows.
+As features are added, keep splitting `App.jsx` into components under `src/`, following the `Counter.jsx`/`Counter.css` co-location pattern.
