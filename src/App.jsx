@@ -8,7 +8,7 @@ import Timer from './Timer'
 import Ref from './Ref'
 import Ref2 from './Ref2'
 import Score from './Score'
-import WithoutCallbackExample from './WithoutCallbackExample'
+import WithCallbackExample from './WithCallbackExample'
 import './App.css'
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
       <Color />
       <Ref2 />
       <Score />
-      <WithoutCallbackExample />
+      <WithCallbackExample />
     </>
   );
 }
