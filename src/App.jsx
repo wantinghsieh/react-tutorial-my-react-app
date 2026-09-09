@@ -6,6 +6,9 @@ import Counter from './Counter'
 import Color from './Color'
 import Timer from './Timer'
 import Ref from './Ref'
+import Ref2 from './Ref2'
+import Score from './Score'
+import WithoutCallbackExample from './WithoutCallbackExample'
 import './App.css'
 
 function App() {
@@ -15,6 +18,9 @@ function App() {
       <Timer />
       <Counter />
       <Color />
+      <Ref2 />
+      <Score />
+      <WithoutCallbackExample />
     </>
   );
 }

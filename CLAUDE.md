@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Minimal React + Vite scaffold (unmodified `create-vite` react template), used as a tutorial/learning sandbox. No router, state management, or test framework is set up.
+Minimal React + Vite scaffold (unmodified `create-vite` react template), used as a hooks tutorial/learning sandbox. Each top-level component is a standalone demo of one React hook — components are not wired together and share no state. No router, state management library, or test framework is set up.
 
 ## Commands
 
@@ -18,10 +18,14 @@ There is no test suite configured.
 ## Architecture
 
 - `src/main.jsx` — entry point, mounts `<App />` into `#root` inside `StrictMode`.
-- `src/App.jsx` — top-level component; composes other components (e.g. `Counter`) plus its own local UI/state.
-- `src/Counter.jsx` — example of the split-out pattern: a component paired with its own co-located CSS file (`Counter.css`), each imported directly (no CSS modules).
+- `src/App.jsx` — composes the standalone demo components (`Ref`, `Timer`, `Counter`, `Color`, `Ref2`, `Score`, `WithoutCallbackExample`) with no shared state or data flow between them.
+- `src/specs.txt` — running log of the literal natural-language prompts used to generate each component. When asked to add a new hook demo, append the prompt used as a new entry here, following the existing style (component name/path, hook + state shape, render behavior, CSS co-location instruction, where to mount it in `App.jsx`).
+- Component pattern: each demo is `Name.jsx` + co-located `Name.css`, both imported directly (no CSS modules, no inline styles), e.g. `Counter`/`Counter.css`, `Ref`/`Ref.css`. Not every demo has a CSS file (e.g. `Score`, `WithoutCallbackExample` currently don't).
+- Current demos and the hook each one illustrates: `Counter` (`useState`), `Color` (`useState`), `Timer` (`useEffect`), `Ref`/`Ref2` (`useRef`), `Score` (`useReducer`), `WithoutCallbackExample` (`useCallback`/`React.memo`, contrast case showing child re-renders without memoized handlers).
+- `Timer.jsx` has an intentionally uncleaned `setTimeout` inside its `useEffect` (no cleanup function, no dependency array) — this is a deliberate bug demonstrating a common effect-cleanup mistake, not an oversight to fix.
+- `WithoutCallbackExample.jsx` uses `alert()` on every render/click to make re-renders observable. `Button` is a module-scope `React.memo`-wrapped component (stable identity across renders), but `handleClick1`/`handleClick2` are plain closures recreated on every render of the parent, so `Button`'s shallow prop comparison still fails and both children re-render on any click — this is intentional for the demo (the "without" case), not a mistake to clean up.
 - `src/assets/` — static images imported directly into JSX.
 - `public/icons.svg` — sprite sheet referenced via `<use href="/icons.svg#...">` for inline icons (documentation/social/github/discord/x/bluesky icons).
-- Styling is plain CSS, one file per component (`App.css`, `Counter.css`, `index.css`), no CSS framework or CSS-in-JS.
+- Styling is plain CSS, one file per component, no CSS framework or CSS-in-JS.
 
-As features are added, keep splitting `App.jsx` into components under `src/`, following the `Counter.jsx`/`Counter.css` co-location pattern.
+As features are added, keep splitting `App.jsx` into components under `src/`, following the co-location pattern above, and record the generating prompt in `specs.txt`.
